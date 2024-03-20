@@ -1,6 +1,6 @@
-import React, { Suspense} from 'react';
-import'./App.scss';
-import { BrowserRouter, Routes, Route, Redirect, Link} from 'react-router-dom';
+import React, { Suspense } from 'react';
+import './App.scss';
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import NotFound from './components/NotFound';
 
 const Photo = React.lazy(() => import('./features/Photo'));
@@ -16,9 +16,9 @@ function App() {
             <li><Link to='/photos/123'>Go to Edit photo page</Link></li>
           </ul>
           <Routes>
-            <Redirect exact from  ='/' to="/photos"/>
-            <Route path='/photos' component={Photo}/>
-            <Route component={NotFound}/>
+            {/* <Navigate exact from  ='/' to="/photos"/> */}
+            <Route path='/photos' component={Photo} />
+            <Route component={NotFound} />
           </Routes>
         </BrowserRouter>
       </Suspense>
